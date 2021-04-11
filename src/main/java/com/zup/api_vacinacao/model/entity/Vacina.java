@@ -1,7 +1,15 @@
-package com.zup.api_vacinacao.entity;
+package com.zup.api_vacinacao.model.entity;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "vacina")
 public class Vacina {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
     private String nome_vacina;
 
     public Integer getId() {

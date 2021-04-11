@@ -1,11 +1,23 @@
-package com.zup.api_vacinacao.entity;
+package com.zup.api_vacinacao.model.entity;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "item_carteira")
 public class ItemCarteira {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
+    @ManyToOne
+    @JoinColumn(name = "id_carteira")
     private CarteiraVacinacao carteira;
+
+    @ManyToOne
+    @JoinColumn(name = "id_vacina")
     private Vacina vacina;
+
     private LocalDate data_vacinacao;
 
     public Integer getId() {
