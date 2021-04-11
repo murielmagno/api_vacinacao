@@ -21,5 +21,6 @@ public class CarteiraController {
     public Integer save(@RequestBody CarteiraDTO dto){
         CarteiraVacinacao carteira = service.salvar(dto);
         return carteira.getId();
+
     }
 }

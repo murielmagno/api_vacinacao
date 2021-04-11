@@ -11,7 +11,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/usuarios")
+@RequestMapping("/cadastroUsuario")
 public class UsuarioController {
 
     private Usuarios usuarios;
@@ -22,10 +22,10 @@ public class UsuarioController {
 
     @GetMapping("{id}")
     public Usuario getUsuarioById(@PathVariable Integer id) {
-        return usuarios.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario não encontrado"));
+        return usuarios.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Usuario não encontrado"));
     }
 
-    @PostMapping("/criarUsuario")
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Usuario save(@RequestBody Usuario usuario) {
         return usuarios.save(usuario);
@@ -37,7 +37,7 @@ public class UsuarioController {
         usuarios.findById(id).map(usuario -> {
             usuarios.delete(usuario);
             return usuario;
-        }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario não encontrado"));
+        }).orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Usuario não encontrado"));
 
     }
 
@@ -48,10 +48,10 @@ public class UsuarioController {
             usuario.setId(us.getId());
             usuarios.save(usuario);
             return us;
-        }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario não encontrado"));
+        }).orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Usuario não encontrado"));
     }
 
-    @GetMapping("/listaUsuarios")
+    @GetMapping
     public List<Usuario> find(Usuario usuario) {
         ExampleMatcher matcher = ExampleMatcher.matching().withIgnoreCase().withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING);
         Example example = Example.of(usuario, matcher);
