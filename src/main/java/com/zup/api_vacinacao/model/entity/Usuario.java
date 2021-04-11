@@ -1,5 +1,7 @@
 package com.zup.api_vacinacao.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -17,11 +19,12 @@ public class Usuario {
     @Column(nullable = false, unique = true)
     private String email;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true,length = 11)
     private String cpf;
 
     private String data_nascimento;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
     private Set<CarteiraVacinacao> carteiras;
 
