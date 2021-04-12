@@ -11,7 +11,7 @@ public class CarteiraVacinacao {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;
 

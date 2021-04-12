@@ -5,12 +5,12 @@ import com.zup.api_vacinacao.model.entity.CarteiraVacinacao;
 import com.zup.api_vacinacao.model.entity.ItemCarteira;
 import com.zup.api_vacinacao.model.entity.Usuario;
 import com.zup.api_vacinacao.model.entity.Vacina;
-import com.zup.api_vacinacao.model.repository.Carteiras;
-import com.zup.api_vacinacao.model.repository.ItensCarteira;
-import com.zup.api_vacinacao.model.repository.Usuarios;
-import com.zup.api_vacinacao.model.repository.Vacinas;
-import com.zup.api_vacinacao.rest.dto.CarteiraDTO;
-import com.zup.api_vacinacao.rest.dto.ItensCarteiraDTO;
+import com.zup.api_vacinacao.controller.repository.Carteiras;
+import com.zup.api_vacinacao.controller.repository.ItensCarteira;
+import com.zup.api_vacinacao.controller.repository.Usuarios;
+import com.zup.api_vacinacao.controller.repository.Vacinas;
+import com.zup.api_vacinacao.controller.dto.CarteiraDTO;
+import com.zup.api_vacinacao.controller.dto.ItensCarteiraDTO;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

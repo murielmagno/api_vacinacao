@@ -1,7 +1,7 @@
-package com.zup.api_vacinacao.rest.controller;
+package com.zup.api_vacinacao.controller;
 
+import com.zup.api_vacinacao.controller.dto.CarteiraDTO;
 import com.zup.api_vacinacao.model.entity.CarteiraVacinacao;
-import com.zup.api_vacinacao.rest.dto.CarteiraDTO;
 import com.zup.api_vacinacao.service.CarteiraService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +21,5 @@ public class CarteiraController {
     public Integer save(@RequestBody CarteiraDTO dto){
         CarteiraVacinacao carteira = service.salvar(dto);
         return carteira.getId();
-
     }
 }

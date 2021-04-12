@@ -1,4 +1,4 @@
-package com.zup.api_vacinacao.model.repository;
+package com.zup.api_vacinacao.controller.repository;
 
 import com.zup.api_vacinacao.model.entity.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;

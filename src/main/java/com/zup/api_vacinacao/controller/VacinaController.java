@@ -1,8 +1,7 @@
-package com.zup.api_vacinacao.rest.controller;
+package com.zup.api_vacinacao.controller;
 
-import com.zup.api_vacinacao.model.entity.Usuario;
 import com.zup.api_vacinacao.model.entity.Vacina;
-import com.zup.api_vacinacao.model.repository.Vacinas;
+import com.zup.api_vacinacao.controller.repository.Vacinas;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.http.HttpStatus;

@@ -2,8 +2,8 @@ package com.zup.api_vacinacao;
 
 import com.zup.api_vacinacao.model.entity.CarteiraVacinacao;
 import com.zup.api_vacinacao.model.entity.Usuario;
-import com.zup.api_vacinacao.model.repository.Carteiras;
-import com.zup.api_vacinacao.model.repository.Usuarios;
+import com.zup.api_vacinacao.controller.repository.Carteiras;
+import com.zup.api_vacinacao.controller.repository.Usuarios;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

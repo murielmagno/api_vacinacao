@@ -1,4 +1,4 @@
-package com.zup.api_vacinacao.rest.dto;
+package com.zup.api_vacinacao.controller.dto;
 
 //
 //{
