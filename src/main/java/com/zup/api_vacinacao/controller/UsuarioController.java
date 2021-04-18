@@ -1,5 +1,6 @@
 package com.zup.api_vacinacao.controller;
 
+import com.zup.api_vacinacao.exception.RegraVacinacaoException;
 import com.zup.api_vacinacao.model.entity.Usuario;
 import com.zup.api_vacinacao.controller.repository.Usuarios;
 import org.springframework.data.domain.Example;
@@ -23,7 +24,7 @@ public class UsuarioController {
     @GetMapping("{id}")
     public Usuario getUsuarioById(@PathVariable Integer id) {
         return usuarios.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Usuario não encontrado"));
+                .orElseThrow(() -> new RegraVacinacaoException(HttpStatus.BAD_REQUEST, "Usuario não encontrado"));
     }
 
     @PostMapping
@@ -38,7 +39,7 @@ public class UsuarioController {
         usuarios.findById(id).map(usuario -> {
             usuarios.delete(usuario);
             return usuario;
-        }).orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Usuario não encontrado"));
+        }).orElseThrow(() -> new RegraVacinacaoException(HttpStatus.BAD_REQUEST, "Usuario não encontrado"));
 
     }
 
@@ -49,7 +50,7 @@ public class UsuarioController {
             usuario.setId(us.getId());
             usuarios.save(usuario);
             return us;
-        }).orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Usuario não encontrado"));
+        }).orElseThrow(() -> new RegraVacinacaoException(HttpStatus.BAD_REQUEST, "Usuario não encontrado"));
     }
 
     @GetMapping

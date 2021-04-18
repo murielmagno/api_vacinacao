@@ -11,6 +11,7 @@ import com.zup.api_vacinacao.controller.repository.Usuarios;
 import com.zup.api_vacinacao.controller.repository.Vacinas;
 import com.zup.api_vacinacao.controller.dto.CarteiraDTO;
 import com.zup.api_vacinacao.controller.dto.ItensCarteiraDTO;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -39,7 +40,7 @@ public class CarteiraServiceImpl implements CarteiraService {
     public CarteiraVacinacao salvar(CarteiraDTO dto) {
         Integer idUsuario = dto.getUsuario();
         Usuario us = usuariosRepository.findById(idUsuario)
-                .orElseThrow(() -> new RegraVacinacaoException("Código do usuário invalido"));
+                .orElseThrow(() -> new RegraVacinacaoException(HttpStatus.BAD_REQUEST, "Código do usuário invalido"));
 
         CarteiraVacinacao carteiraVacinacao = new CarteiraVacinacao();
         carteiraVacinacao.setUsuario(us);
@@ -53,14 +54,14 @@ public class CarteiraServiceImpl implements CarteiraService {
 
     @Override
     public Optional<CarteiraVacinacao> consultarCarteira(Integer id) {
-        return carteirasRepository.findByIdFechItens(id);
+        return carteirasRepository.findByIdFetchItens(id);
     }
 
     private List<ItemCarteira> adicionarItens(CarteiraVacinacao carteiraVacinacao, List<ItensCarteiraDTO> itens) {
         return itens.stream().map(dto -> {
             Integer idVacina = dto.getVacina();
             Vacina vacina = vacinasRepository.findById(idVacina)
-                    .orElseThrow(() -> new RegraVacinacaoException("Codigo da vacina invalido: " + idVacina));
+                    .orElseThrow(() -> new RegraVacinacaoException(HttpStatus.BAD_REQUEST, "Codigo da vacina invalido: " + idVacina));
 
             ItemCarteira itemCarteira = new ItemCarteira();
             itemCarteira.setCarteira(carteiraVacinacao);

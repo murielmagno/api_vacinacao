@@ -1,5 +1,6 @@
 package com.zup.api_vacinacao.controller;
 
+import com.zup.api_vacinacao.exception.RegraVacinacaoException;
 import com.zup.api_vacinacao.model.entity.Vacina;
 import com.zup.api_vacinacao.controller.repository.Vacinas;
 import org.springframework.data.domain.Example;
@@ -34,7 +35,7 @@ public class VacinaController {
                     vacina.setId(v.getId());
                     vacinas.save(vacina);
                     return vacina;
-                }).orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Vacina não encontrada"));
+                }).orElseThrow(() -> new RegraVacinacaoException(HttpStatus.BAD_REQUEST, "Vacina não encontrada"));
     }
 
     @DeleteMapping("{id}")
@@ -44,14 +45,14 @@ public class VacinaController {
                 .map(v -> {
                     vacinas.delete(v);
                     return Void.TYPE;
-                }).orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Vacina não encontrada"));
+                }).orElseThrow(() -> new RegraVacinacaoException(HttpStatus.BAD_REQUEST, "Vacina não encontrada"));
 
     }
 
     @GetMapping("{id}")
     public Vacina getById(@PathVariable Integer id) {
         return vacinas.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Vacina não encontrada"));
+                .orElseThrow(() -> new RegraVacinacaoException(HttpStatus.BAD_REQUEST, "Vacina não encontrada"));
 
     }
 

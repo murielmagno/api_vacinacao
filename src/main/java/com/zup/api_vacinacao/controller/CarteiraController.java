@@ -36,7 +36,7 @@ public class CarteiraController {
     @GetMapping("{id}")
     public InfoCarteiraDTO infoCarteiraById(@PathVariable Integer id) {
         return service.consultarCarteira(id).map(carteiraVacinacao -> transformar(carteiraVacinacao))
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Carteira não encontrada."));
+                .orElseThrow(() -> new RegraVacinacaoException(HttpStatus.NOT_FOUND, "Carteira não encontrada."));
     }
 
     private InfoCarteiraDTO transformar(CarteiraVacinacao carteiraVacinacao) {
