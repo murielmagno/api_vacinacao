@@ -11,3 +11,10 @@
 - [x] Cadastro de usuário
 - [x] Vacinação
 - [ ] Consumir carteira de vacianção
+
+### 🛠 Tecnologias
+
+Ferramentas usadas na construção do projeto:
+
+- [Java](https://www.java.com/pt-BR/)
+- [Spring Boot](https://spring.io/)
