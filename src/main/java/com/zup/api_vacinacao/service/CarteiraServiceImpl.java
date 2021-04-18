@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -48,6 +49,11 @@ public class CarteiraServiceImpl implements CarteiraService {
         itensCarteiraRepository.saveAll(itens);
         carteiraVacinacao.setItens(itens);
         return carteiraVacinacao;
+    }
+
+    @Override
+    public Optional<CarteiraVacinacao> consultarCarteira(Integer id) {
+        return carteirasRepository.findByIdFechItens(id);
     }
 
     private List<ItemCarteira> adicionarItens(CarteiraVacinacao carteiraVacinacao, List<ItensCarteiraDTO> itens) {
