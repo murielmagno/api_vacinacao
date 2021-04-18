@@ -18,3 +18,4 @@ Ferramentas usadas na construção do projeto:
 
 - [Java](https://www.java.com/pt-BR/)
 - [Spring Boot](https://spring.io/)
+- [Lombook](https://projectlombok.org/)
