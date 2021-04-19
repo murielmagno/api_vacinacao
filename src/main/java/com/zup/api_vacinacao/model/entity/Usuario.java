@@ -3,6 +3,7 @@ package com.zup.api_vacinacao.model.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.util.Set;
 
 @Entity
@@ -14,6 +15,7 @@ public class Usuario {
     private Integer id;
 
     @Column(nullable = false, length = 100)
+    @NotEmpty(message = "O nome é obrigatório.")
     private String nome;
 
     @Column(nullable = false, unique = true)
