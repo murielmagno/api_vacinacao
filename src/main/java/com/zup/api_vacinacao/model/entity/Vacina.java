@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Vacina {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String nome_vacina;

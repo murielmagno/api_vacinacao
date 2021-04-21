@@ -7,7 +7,7 @@ import java.time.LocalDate;
 @Table(name = "item_carteira")
 public class ItemCarteira {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @ManyToOne
